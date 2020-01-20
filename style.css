@@ -1,0 +1,59 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#canvas {
+  position: relative;
+}
+#canvas .point {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: black;
+  transform: translate3d(-50%, -50%, 0);
+  cursor: pointer;
+}
+.point .helper {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  width: 110px;
+  background: white;
+  border: 1px solid black;
+  transform: translateY(-50%);
+  box-shadow: 2px 2px 2px black;
+  display: none;
+}
+.point:hover .helper {
+  display: block;
+}
+.point .helper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  transform: translateY(-50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid black;
+}
+.point .helper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -9px;
+  transform: translateY(-50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+  z-index: 10;
+}
+.point .helper p {
+  margin: 0;
+  padding: 5px 10px;
+  font-family: sans-serif;
+}
